@@ -2,9 +2,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>学生管理系统</title>
 </head>
 <body>
-<h1>金融小工具管理系统</h1>
+<h4><i>学生管理系统</i></h4>
 </body>
 </html>

@@ -1,0 +1,12 @@
+CREATE TABLE `student` (
+  `stu_id` int(9) unsigned NOT NULL AUTO_INCREMENT COMMENT '配置项id',
+  `stu_name` varchar(10) NOT NULL COMMENT '学生姓名',
+  `stu_sex` varchar(6) NOT NULL COMMENT '性别',
+  `stu_age` INT(3) NOT NULL COMMENT '年龄',
+	`stu_grade` varchar(10) NOT NULL COMMENT '年级',
+  `stu_address` varchar(255) NOT NULL COMMENT '住址',
+  `stu_cardId` varchar(25) DEFAULT '' COMMENT 'ID_card',
+  `stu_family` varchar(30) NOT NULL COMMENT '联系家属',
+  `stu_phone` varchar(66) NOT NULL COMMENT '联系电话',
+  PRIMARY KEY (`stu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='学生表';
