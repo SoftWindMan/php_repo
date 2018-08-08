@@ -11,7 +11,7 @@
 <body>
 <ul class="type" type="none">
 	<li><a href="addStudent.php" target="main">1、新增学生</a></li>
-	<li><a href="studentList.php" target="main">2、学生名单</a></li>
+	<li><a href="studentList.php" target="main">2、学生列表</a></li>
 </ul>
 </body>
 </html>
