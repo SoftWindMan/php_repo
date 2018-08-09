@@ -1,0 +1,12 @@
+CREATE OR REPLACE TABLE `student` (
+  `stu_id` int unsigned NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `stu_name` varchar(10) NOT NULL COMMENT '学生姓名',
+  `stu_sex` int NOT NULL COMMENT '性别',
+  `stu_age` int NOT NULL COMMENT '年龄',
+  `stu_grade` int NOT NULL COMMENT '年级',
+  `stu_address` varchar(255) NOT NULL COMMENT '住址',
+  `stu_cardId` varchar(50) DEFAULT '' COMMENT 'ID_card',
+  `stu_family` varchar(90) NOT NULL COMMENT '联系家属',
+  `stu_phone` varchar(90) NOT NULL COMMENT '联系电话',
+  PRIMARY KEY (`stu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='学生表';
