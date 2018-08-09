@@ -50,6 +50,7 @@
         <th>身份证号</th>
         <th>联系家属</th>
         <th>联系电话</th>
+        <th>操作</th>
     </tr>
     <tr>
         <td>1</td>
@@ -61,6 +62,7 @@
         <td>15292319730207863X</td>
         <td>小明父亲 小明母亲</td>
         <td>17718339458</td>
+        <td><a href="">编辑</a>&nbsp;<a href="">删除</a></td>
     </tr>
     <tr>
         <td>2</td>
@@ -72,12 +74,9 @@
         <td>430482197203195644</td>
         <td>小陈母亲 小陈姥爷</td>
         <td>17718339782</td>
+        <td><a href="">编辑</a>&nbsp;<a href="">删除</a></td>
     </tr>
 </table>
-
-
-
-
 
 <script type="text/javascript">
     function changeSelBtn(index){

@@ -6,6 +6,18 @@
     <script type="text/javascript" src="../jquery-1.11.3/jquery-1.11.3.js"></script>
 
     <style type="text/css">
+        div span.leftMove{
+            margin-left: -112px;
+        }
+        div span#card_id{
+            margin-left: -32px;
+        }
+        div span#family{
+            margin-left: 285px;
+        }
+        div span#phone{
+            margin-left: 275px;
+        }
         div input#subBtn{
             background-color: #3bb4f2;
             border: 1px solid black;
@@ -67,17 +79,17 @@
     <form id="addStuForm" action="../handlerPage/addAction.php" method="post" align="center" onsubmit="return checkStuInfo()">
         学生姓名: <input id="stu_name" type="text" name="stu_name" />&nbsp;<i>*必填</i><br>
 
-        <span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别: </span>
+        <span class="leftMove">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别: </span>
         <input name="stu_sex" type="radio" value="1" checked="checked"/>男
         <input name="stu_sex" type="radio" value="0"/>女<br>
 
-        年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄: <input id="stu_age" type="text" name="stu_age" />&nbsp;<i>*必填</i><br>
+        <span>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄: </span><input id="stu_age" type="text" name="stu_age" />&nbsp;<i>*必填</i><br>
 
-        <span>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级: </span>
+        <span class="leftMove">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级: </span>
         <select name="stu_grade">
-            <option value="7">小班</option>
+            <option value="7" selected="selected">小班</option>
             <option value="8">中班</option>
-            <option value="9" selected="selected">大班</option>
+            <option value="9">大班</option>
             <option value="1">一年级</option>
             <option value="2">二年级</option>
             <option value="3">三年级</option>
@@ -87,13 +99,12 @@
         </select><br>
 
         家庭住址: <input id="stu_address" type="text" name="stu_address" />&nbsp;<i>*必填</i><br>
-        <span>身份证号: </span><input id="stu_cardId" type="text" name="stu_cardId" /><br>
-        <span>联系家属: </span><input id="stu_family" type="text" name="stu_family" />&nbsp;<i>*必填（最多可填写三个联系人）</i><br>
-        <span>联系电话: </span><input id="stu_phone" type="text" name="stu_phone" />&nbsp;<i>*必填（最多可填写三个电话）</i><br><br>
+        <span id="card_id">身份证号: </span><input id="stu_cardId" type="text" name="stu_cardId" /><br>
+        <span id="family">联系家属: </span><input id="stu_family" type="text" name="stu_family" />&nbsp;<i>*必填（最多可填写三个联系人）</i><br>
+        <span id="phone">联系电话: </span><input id="stu_phone" type="text" name="stu_phone" />&nbsp;<i>*必填（最多可填写三个电话）</i><br><br>
         <input id="subBtn" type="submit" value="添加"/>
     </form>
 </div>
-
 
 </body>
 </html>
