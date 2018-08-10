@@ -1,11 +1,12 @@
-CREATE OR REPLACE TABLE `student` (
+CREATE TABLE `student` (
   `stu_id` int unsigned NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `stu_name` varchar(10) NOT NULL COMMENT '学生姓名',
   `stu_sex` int NOT NULL COMMENT '性别',
   `stu_age` int NOT NULL COMMENT '年龄',
   `stu_grade` int NOT NULL COMMENT '年级',
-  `stu_type` int NOT NULL DEFAULT '' COMMENT '学生类型',
-  `stu_voidAmount` FLOAT(4,2) DEFAULT 0 COMMENT '减免金额',
+  `stu_type` int NOT NULL COMMENT '学生类型',
+  `stu_voidAmount` FLOAT(6,2) DEFAULT 0 COMMENT '减免金额',
+  `stu_paidAmount` FLOAT(6,2) DEFAULT 0 COMMENT '已付金额',
   `stu_address` varchar(255) NOT NULL COMMENT '住址',
   `stu_cardId` varchar(50) DEFAULT '' COMMENT '身份证号',
   `stu_family` varchar(90) NOT NULL COMMENT '联系家属',
@@ -13,8 +14,55 @@ CREATE OR REPLACE TABLE `student` (
   PRIMARY KEY (`stu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='学生表';
 
-CREATE OR REPLACE TABLE `stuFee` (
-  `grade_id` int unsigned NOT NULL COMMENT '年级id',
-  `stu_type` int NOT NULL COMMENT '学生类型',
-  `receviable_amount` FLOAT(4,2) DEFAULT 0 COMMENT '应收金额',
+CREATE TABLE `fee` (
+  `grade_id` int unsigned NOT NULL COMMENT '年级id 1~6年级 7~9小中大',
+  `stu_type` int NOT NULL COMMENT '学生类型 1:走读;2:接送;3:日托;4:全托',
+  `receviable_amount` FLOAT(6,2) DEFAULT 0 COMMENT '应收金额'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收费表';
+
+
+测试数据
+insert into fee(grade_id, stu_type, receviable_amount) values(1, 1, 100);
+insert into fee(grade_id, stu_type, receviable_amount) values(1, 2, 200);
+insert into fee(grade_id, stu_type, receviable_amount) values(1, 3, 300);
+insert into fee(grade_id, stu_type, receviable_amount) values(1, 4, 400);
+
+insert into fee(grade_id, stu_type, receviable_amount) values(2, 1, 100);
+insert into fee(grade_id, stu_type, receviable_amount) values(2, 2, 200);
+insert into fee(grade_id, stu_type, receviable_amount) values(2, 3, 300);
+insert into fee(grade_id, stu_type, receviable_amount) values(2, 4, 400);
+
+insert into fee(grade_id, stu_type, receviable_amount) values(3, 1, 100);
+insert into fee(grade_id, stu_type, receviable_amount) values(3, 2, 200);
+insert into fee(grade_id, stu_type, receviable_amount) values(3, 3, 300);
+insert into fee(grade_id, stu_type, receviable_amount) values(3, 4, 400);
+
+insert into fee(grade_id, stu_type, receviable_amount) values(4, 1, 100);
+insert into fee(grade_id, stu_type, receviable_amount) values(4, 2, 200);
+insert into fee(grade_id, stu_type, receviable_amount) values(4, 3, 300);
+insert into fee(grade_id, stu_type, receviable_amount) values(4, 4, 400);
+
+insert into fee(grade_id, stu_type, receviable_amount) values(5, 1, 100);
+insert into fee(grade_id, stu_type, receviable_amount) values(5, 2, 200);
+insert into fee(grade_id, stu_type, receviable_amount) values(5, 3, 300);
+insert into fee(grade_id, stu_type, receviable_amount) values(5, 4, 400);
+
+insert into fee(grade_id, stu_type, receviable_amount) values(6, 1, 100);
+insert into fee(grade_id, stu_type, receviable_amount) values(6, 2, 200);
+insert into fee(grade_id, stu_type, receviable_amount) values(6, 3, 300);
+insert into fee(grade_id, stu_type, receviable_amount) values(6, 4, 400);
+
+insert into fee(grade_id, stu_type, receviable_amount) values(7, 1, 100);
+insert into fee(grade_id, stu_type, receviable_amount) values(7, 2, 200);
+insert into fee(grade_id, stu_type, receviable_amount) values(7, 3, 300);
+insert into fee(grade_id, stu_type, receviable_amount) values(7, 4, 400);
+
+insert into fee(grade_id, stu_type, receviable_amount) values(8, 1, 100);
+insert into fee(grade_id, stu_type, receviable_amount) values(8, 2, 200);
+insert into fee(grade_id, stu_type, receviable_amount) values(8, 3, 300);
+insert into fee(grade_id, stu_type, receviable_amount) values(8, 4, 400);
+
+insert into fee(grade_id, stu_type, receviable_amount) values(9, 1, 100);
+insert into fee(grade_id, stu_type, receviable_amount) values(9, 2, 200);
+insert into fee(grade_id, stu_type, receviable_amount) values(9, 3, 300);
+insert into fee(grade_id, stu_type, receviable_amount) values(9, 4, 400);

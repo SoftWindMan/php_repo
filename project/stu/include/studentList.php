@@ -5,41 +5,64 @@
     <title>学生列表</title>
     <script type="text/javascript" src="../tools/jquery-1.11.3/jquery-1.11.3.js"></script>
     <style type="text/css">
-        .sel_btn{
-            margin-right: 6px;
+        table tr th{
+            font-size: 13px;
+        }
+        table tr td{
+            font-size: 12px;
+        }
+        label{
+            margin-right: 10px;
+        }
+        input#subBtn{
+            margin-top: 10px;
             margin-bottom: 10px;
             width: 60px;
-            line-height: 30px;
-            padding: 0 11px;
-            background: #02bafa;
-            border: 1px black solid;
+            height: 30px;
             border-radius: 3px;
-            display: inline-block;
-            text-decoration: none;
-            text-align: center;
-            font-size: 12px;
-            outline: none;
-        }
-        .ch_cls{
-            background: #e4e4e4;
+            background-color: #3bb4f2;
         }
     </style>
 </head>
 <h4 align="center"><i>2、学生列表</i></h4>
 
-<div id="gradeList" align="center">
-    <a class="sel_btn ch_cls" id="sel_btn1" href="#" onclick="changeSelBtn(1)">小班</a>
-    <a class="sel_btn" id="sel_btn2" href="#" onclick="changeSelBtn(2)">中班</a>
-    <a class="sel_btn" id="sel_btn3" href="#" onclick="changeSelBtn(3)">大班</a>
-    <a class="sel_btn" id="sel_btn4" href="#" onclick="changeSelBtn(4)">一年级</a>
-    <a class="sel_btn" id="sel_btn5" href="#" onclick="changeSelBtn(5)">二年级</a>
-    <a class="sel_btn" id="sel_btn6" href="#" onclick="changeSelBtn(6)">三年级</a>
-    <a class="sel_btn" id="sel_btn7" href="#" onclick="changeSelBtn(7)">四年级</a>
-    <a class="sel_btn" id="sel_btn8" href="#" onclick="changeSelBtn(8)">五年级</a>
-    <a class="sel_btn" id="sel_btn9" href="#" onclick="changeSelBtn(9)">六年级</a>
+<div>
+    <form action="" method="post" align="center">
+        <label>学生姓名: <input type="text" name="stu_name" /></label>
+
+        <label>
+            年级: <select name="stu_grade">
+                <option value="7" selected="selected">小班</option>
+                <option value="8">中班</option>
+                <option value="9">大班</option>
+                <option value="1">一年级</option>
+                <option value="2">二年级</option>
+                <option value="3">三年级</option>
+                <option value="4">四年级</option>
+                <option value="5">五年级</option>
+                <option value="6">六年级</option>
+            </select>
+        </label>
+
+        <label>学生类型:<select name="stu_grade">
+                <option value="1" selected="selected">走读</option>
+                <option value="2">接送</option>
+                <option value="3">日托</option>
+                <option value="4">全托</option>
+            </select>
+        </label>
+
+        <label>是否欠费:<select name="fee">
+                <option value="0" selected="selected">否</option>
+                <option value="1">是</option>
+            </select><br>
+        </label>
+
+        <input id="subBtn" type="submit" value="查询"/>
+    </form>
 </div>
 
-<table align="center" border="1px solid black" cellpadding="5px">
+<table align="center" border="1px" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <th>编号</th>
         <th>学生姓名</th>
@@ -77,101 +100,5 @@
         <td><a href="">编辑</a>&nbsp;<a href="">删除</a></td>
     </tr>
 </table>
-
-<script type="text/javascript">
-    function changeSelBtn(index){
-        if(index==1){
-            $("#sel_btn1").addClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
-            $("#sel_btn6").removeClass('ch_cls');
-            $("#sel_btn7").removeClass('ch_cls');
-            $("#sel_btn8").removeClass('ch_cls');
-            $("#sel_btn9").removeClass('ch_cls');
-        }else if(index==2){
-            $("#sel_btn2").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
-            $("#sel_btn6").removeClass('ch_cls');
-            $("#sel_btn7").removeClass('ch_cls');
-            $("#sel_btn8").removeClass('ch_cls');
-            $("#sel_btn9").removeClass('ch_cls');
-        }else if(index==3){
-            $("#sel_btn3").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
-            $("#sel_btn6").removeClass('ch_cls');
-            $("#sel_btn7").removeClass('ch_cls');
-            $("#sel_btn8").removeClass('ch_cls');
-            $("#sel_btn9").removeClass('ch_cls');
-        }else if(index==4){
-            $("#sel_btn4").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
-            $("#sel_btn6").removeClass('ch_cls');
-            $("#sel_btn7").removeClass('ch_cls');
-            $("#sel_btn8").removeClass('ch_cls');
-            $("#sel_btn9").removeClass('ch_cls');
-        }else if(index==5){
-            $("#sel_btn5").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn6").removeClass('ch_cls');
-            $("#sel_btn7").removeClass('ch_cls');
-            $("#sel_btn8").removeClass('ch_cls');
-            $("#sel_btn9").removeClass('ch_cls');
-        }else if(index==6){
-            $("#sel_btn6").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
-            $("#sel_btn7").removeClass('ch_cls');
-            $("#sel_btn8").removeClass('ch_cls');
-            $("#sel_btn9").removeClass('ch_cls');
-        }else if(index==7){
-            $("#sel_btn7").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
-            $("#sel_btn6").removeClass('ch_cls');
-            $("#sel_btn8").removeClass('ch_cls');
-            $("#sel_btn9").removeClass('ch_cls');
-        }else if(index==8){
-            $("#sel_btn8").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
-            $("#sel_btn6").removeClass('ch_cls');
-            $("#sel_btn7").removeClass('ch_cls');
-            $("#sel_btn9").removeClass('ch_cls');
-        }else if(index==9){
-            $("#sel_btn9").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
-            $("#sel_btn6").removeClass('ch_cls');
-            $("#sel_btn7").removeClass('ch_cls');
-            $("#sel_btn8").removeClass('ch_cls');
-        }
-    }
-</script>
 
 </html>
