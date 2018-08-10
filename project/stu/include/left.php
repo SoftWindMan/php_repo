@@ -14,6 +14,7 @@
 	<li><a href="studentList.php" target="main">2、学生列表</a></li>
 	<li><a href="exportList.php" target="main">3、导出信息</a></li>
 	<li><a href="importList.php" target="main">4、导入信息</a></li>
+	<li><a href="feeInfo.php" target="main">5、收费信息</a></li>
 </ul>
 </body>
 </html>

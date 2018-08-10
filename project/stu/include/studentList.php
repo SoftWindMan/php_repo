@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>学生列表</title>
-    <script type="text/javascript" src="../jquery-1.11.3/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="../tools/jquery-1.11.3/jquery-1.11.3.js"></script>
     <style type="text/css">
         .sel_btn{
             margin-right: 6px;

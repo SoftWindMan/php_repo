@@ -1,6 +1,6 @@
 <?php
 include "../tools/encryFun.php";
-include "../conf/conf.php";
+include "../tools/conf/conf.php";
 include "../tools/connDatabase.php";
 include "../tools/alertMessage.php";
 

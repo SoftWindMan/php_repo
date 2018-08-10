@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>导出信息</title>
-    <script type="text/javascript" src="../jquery-1.11.3/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="../tools/jquery-1.11.3/jquery-1.11.3.js"></script>
     <style type="text/css">
         div form b{
             color: indianred;

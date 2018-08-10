@@ -4,9 +4,17 @@ CREATE OR REPLACE TABLE `student` (
   `stu_sex` int NOT NULL COMMENT '性别',
   `stu_age` int NOT NULL COMMENT '年龄',
   `stu_grade` int NOT NULL COMMENT '年级',
+  `stu_type` int NOT NULL DEFAULT '' COMMENT '学生类型',
+  `stu_voidAmount` FLOAT(4,2) DEFAULT 0 COMMENT '减免金额',
   `stu_address` varchar(255) NOT NULL COMMENT '住址',
-  `stu_cardId` varchar(50) DEFAULT '' COMMENT 'ID_card',
+  `stu_cardId` varchar(50) DEFAULT '' COMMENT '身份证号',
   `stu_family` varchar(90) NOT NULL COMMENT '联系家属',
   `stu_phone` varchar(90) NOT NULL COMMENT '联系电话',
   PRIMARY KEY (`stu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='学生表';
+
+CREATE OR REPLACE TABLE `stuFee` (
+  `grade_id` int unsigned NOT NULL COMMENT '年级id',
+  `stu_type` int NOT NULL COMMENT '学生类型',
+  `receviable_amount` FLOAT(4,2) DEFAULT 0 COMMENT '应收金额',
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收费表';
