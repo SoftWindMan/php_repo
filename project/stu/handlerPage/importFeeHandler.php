@@ -33,4 +33,3 @@ if(file_exists('../upload/'.$uploadFile['name'])) {
 }
 
 $excelArr = excelToArray('../upload/'.$uploadFile['name']);
-echo
