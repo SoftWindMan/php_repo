@@ -23,6 +23,9 @@ $two_level = "接送";
 $three_level = "日托";
 $four_level = "全托";
 
+$male = "男";
+$female = "女";
+
 
 //加密相关字符串
 define("ENCRY_KEY", $encry_key);
@@ -50,3 +53,7 @@ define("ONE_LEVEL", $one_level);
 define("TWO_LEVEL", $two_level);
 define("THREE_LEVEL", $three_level);
 define("FOUR_LEVEL", $four_level);
+
+//性别
+define("MALE", $male);
+define("FEMALE", $female);

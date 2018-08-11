@@ -8,6 +8,6 @@
     </style>
 </head>
 <body>
-<h2 align="center"><i>****** 学生管理系统 ******</i></h2>
+<h2 align="center"><i>--- 学生管理系统 ---</i></h2>
 </body>
 </html>

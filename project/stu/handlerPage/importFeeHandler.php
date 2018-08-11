@@ -7,6 +7,7 @@ include "../tools/dataConvert.php";
 
 $uploadFile = $_FILES['myfile'];
 
+//判断是否符合上传条件
 if($uploadFile['error'] > 0) {
     if($uploadFile['error'] == 4) {
         alertMessage('请选择上传文件！', '../include/feeInfo.php');
@@ -21,6 +22,7 @@ if($uploadFile['type'] != 'application/vnd.openxmlformats-officedocument.spreads
     exit(0);
 }
 
+//上传动作
 if(file_exists('../upload/'.$uploadFile['name'])) {
     alertMessage('文件已经存在！', '../include/feeInfo.php');
     exit(0);
@@ -35,7 +37,8 @@ if(file_exists('../upload/'.$uploadFile['name'])) {
     }
 }
 
-$excelArr = excelToArray('../excelTemplet/fee.xlsx');
+//读取excel存入数据库
+$excelArr = excelToArray('../upload/'.$uploadFileName);
 $dataArr = $excelArr['data'];
 
 for($i=2; $i<=count($dataArr); $i++) {
@@ -44,15 +47,11 @@ for($i=2; $i<=count($dataArr); $i++) {
     $receAmount = $dataArr[$i]['C'];
     $comm = $dataArr[$i]['D'];
 
-    var_dump($gradeNum);
-    var_dump($stuTypeNum);
-    var_dump($receAmount);
-    var_dump($comm);
-
     $conn = new MysqliProcess(SERVERHOST, USERNAME, PASSWORD, DBNAME);
     $updateSql = "UPDATE fee SET `receviable_amount` = $receAmount, `amount_comment` = '$comm' WHERE `grade_id` = $gradeNum AND `stu_type` = $stuTypeNum";
     $conn->updateData($updateSql);
     $conn->closeDatabase();
 }
 
+//页面跳转
 alertMessage('费用更新成功！', '../include/feeInfo.php');

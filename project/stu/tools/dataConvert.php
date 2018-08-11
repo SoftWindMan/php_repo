@@ -117,3 +117,35 @@ function stutypeInfoToData($stutypeInfo) {
 
     return $stuTypeNum;
 }
+
+//性别 文字 -》数据库
+function sexinfoTodata($sexInfo) {
+    $sexNum = 0;
+
+    switch ($sexInfo) {
+        case MALE:
+            $sexNum = 1;
+            break;
+        case FEMALE:
+            $sexNum = 0;
+            break;
+    }
+
+    return $sexNum;
+}
+
+//性别 数据库 -》文字
+function dataToSexInfo($sexNum) {
+    $sexInfo = '';
+
+    switch ($sexNum) {
+        case 1:
+            $sexInfo = MALE;
+            break;
+        case 0:
+            $sexInfo = FEMALE;
+            break;
+    }
+
+    return $sexInfo;
+}

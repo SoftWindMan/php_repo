@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加学生</title>
+    <title>添加学生信息</title>
     <script type="text/javascript" src="../tools/jquery-1.11.3/jquery-1.11.3.js"></script>
 
     <style type="text/css">
@@ -36,6 +36,15 @@
         div i{
             color: red;
             font-size: 11px;
+        }
+        div form textarea{
+            width: 210px;
+            height: 90px;
+        }
+        div form label.fee_text_left{
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 37px;
         }
     </style>
     <script type="text/javascript">
@@ -76,7 +85,7 @@
     </script>
 </head>
 <body>
-<h4 align="center"><i>1、添加学生</i></h4>
+<h4 align="center"><i>--- 添加学生信息 ---</i></h4>
 
 <div>
     <form id="addStuForm" action="../handlerPage/addAction.php" method="post" align="center" onsubmit="return checkStuInfo()">
@@ -115,7 +124,8 @@
         <label>家庭住址: </label><input type="text" name="stu_address" />&nbsp;<i>*必填</i><br>
         <label class="cardid_left">身份证号: </label><input type="text" name="stu_cardId" /><br>
         <label class="family_left">联系家属: </label><input type="text" name="stu_family" />&nbsp;<i>*必填（最多可填写三个联系人）</i><br>
-        <label class="phone_left">联系电话: </label><input type="text" name="stu_phone" />&nbsp;<i>*必填（最多可填写三个电话）</i><br><br>
+        <label class="phone_left">联系电话: </label><input type="text" name="stu_phone" />&nbsp;<i>*必填（最多可填写三个电话）</i><br>
+        <label class="fee_text_left">缴费备注: </label> <textarea name="stu_feeText"></textarea>&nbsp;<br><br>
         <input id="subBtn" type="submit" value="添加"/>
     </form>
 </div>

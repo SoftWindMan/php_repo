@@ -7,13 +7,14 @@
     <style type="text/css">
         table tr th{
             font-size: 13px;
+            background-color: deepskyblue;
         }
         table tr td{
             font-size: 12px;
         }
         input#subbtn{
             margin-top: 5px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             width: 82px;
             height: 30px;
             border-radius: 3px;
@@ -22,7 +23,7 @@
     </style>
 </head>
 <body>
-<h4 align="center"><i>5、收费信息</i></h4>
+<h4 align="center"><i>--- 收费信息 ---</i></h4>
 
 <form align="center" enctype="multipart/form-data" action="../handlerPage/importFeeHandler.php" method="post">
     <label>请先下载&nbsp;<i><a href="../excelTemplet/fee.xlsx">excel模板</a></i>&nbsp;&nbsp;编辑后上传文件对列表中记录进行更改，</label>
@@ -30,7 +31,7 @@
     <input id="subbtn" type="submit" value="更新费用信息" />
 </form>
 
-<table align="center" border="1px" cellpadding="0" cellspacing="0" width="100%">
+<table align="center" border="1px" cellpadding="0" cellspacing="0" width="80%">
     <tr>
         <th>年级</th>
         <th>学生类型</th>
@@ -48,31 +49,31 @@
 
             switch (floor($i/4)) {
                 case 0:
-                    echo "<tr bgcolor='#fffaf0'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
+                    echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
                 case 1:
-                    echo "<tr bgcolor='#d3d3d3'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
+                    echo "<tr bgcolor='#87cefa'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
                 case 2:
-                    echo "<tr bgcolor='#fffaf0'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
+                    echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
                 case 4:
-                    echo "<tr bgcolor='#d3d3d3'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
+                    echo "<tr bgcolor='#87cefa'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
                 case 5:
-                    echo "<tr bgcolor='#fffaf0'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
+                    echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
                 case 6:
-                    echo "<tr bgcolor='#d3d3d3'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
+                    echo "<tr bgcolor='#87cefa'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
                 case 7:
-                    echo "<tr bgcolor='#fffaf0'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
+                    echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
                 case 8:
-                    echo "<tr bgcolor='#d3d3d3'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
+                    echo "<tr bgcolor='#87cefa'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
                 case 9:
-                    echo "<tr bgcolor='#fffaf0'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
+                    echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
             }
         }
