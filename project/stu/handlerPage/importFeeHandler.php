@@ -55,4 +55,4 @@ for($i=2; $i<=count($dataArr); $i++) {
     $conn->closeDatabase();
 }
 
-alertMessage('文件上传成功！', '../include/feeInfo.php');
+alertMessage('费用更新成功！', '../include/feeInfo.php');
