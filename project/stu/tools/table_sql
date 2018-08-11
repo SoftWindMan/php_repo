@@ -17,52 +17,54 @@ CREATE TABLE `student` (
 CREATE TABLE `fee` (
   `grade_id` int unsigned NOT NULL COMMENT '年级id 1~6年级 7~9小中大',
   `stu_type` int NOT NULL COMMENT '学生类型 1:走读;2:接送;3:日托;4:全托',
-  `receviable_amount` FLOAT(6,2) DEFAULT 0 COMMENT '应收金额'
+  `receviable_amount` FLOAT(6,2) DEFAULT 0 COMMENT '应收金额',
+  `amount_comment` varchar(255) DEFAULT '' COMMENT '费用说明'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收费表';
 
 
-测试数据
-insert into fee(grade_id, stu_type, receviable_amount) values(1, 1, 100);
-insert into fee(grade_id, stu_type, receviable_amount) values(1, 2, 200);
-insert into fee(grade_id, stu_type, receviable_amount) values(1, 3, 300);
-insert into fee(grade_id, stu_type, receviable_amount) values(1, 4, 400);
+-- 测试数据
 
-insert into fee(grade_id, stu_type, receviable_amount) values(2, 1, 100);
-insert into fee(grade_id, stu_type, receviable_amount) values(2, 2, 200);
-insert into fee(grade_id, stu_type, receviable_amount) values(2, 3, 300);
-insert into fee(grade_id, stu_type, receviable_amount) values(2, 4, 400);
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(1, 1, 100, '学费30 杂费70');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(1, 2, 200, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(1, 3, 300, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(1, 4, 400, '');
 
-insert into fee(grade_id, stu_type, receviable_amount) values(3, 1, 100);
-insert into fee(grade_id, stu_type, receviable_amount) values(3, 2, 200);
-insert into fee(grade_id, stu_type, receviable_amount) values(3, 3, 300);
-insert into fee(grade_id, stu_type, receviable_amount) values(3, 4, 400);
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(2, 1, 100, '学费30 杂费70');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(2, 2, 200, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(2, 3, 300, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(2, 4, 400, '');
 
-insert into fee(grade_id, stu_type, receviable_amount) values(4, 1, 100);
-insert into fee(grade_id, stu_type, receviable_amount) values(4, 2, 200);
-insert into fee(grade_id, stu_type, receviable_amount) values(4, 3, 300);
-insert into fee(grade_id, stu_type, receviable_amount) values(4, 4, 400);
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(3, 1, 100, '学费30 杂费70');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(3, 2, 200, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(3, 3, 300, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(3, 4, 400, '');
 
-insert into fee(grade_id, stu_type, receviable_amount) values(5, 1, 100);
-insert into fee(grade_id, stu_type, receviable_amount) values(5, 2, 200);
-insert into fee(grade_id, stu_type, receviable_amount) values(5, 3, 300);
-insert into fee(grade_id, stu_type, receviable_amount) values(5, 4, 400);
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(4, 1, 100, '学费30 杂费70');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(4, 2, 200, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(4, 3, 300, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(4, 4, 400, '');
 
-insert into fee(grade_id, stu_type, receviable_amount) values(6, 1, 100);
-insert into fee(grade_id, stu_type, receviable_amount) values(6, 2, 200);
-insert into fee(grade_id, stu_type, receviable_amount) values(6, 3, 300);
-insert into fee(grade_id, stu_type, receviable_amount) values(6, 4, 400);
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(5, 1, 100, '学费30 杂费70');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(5, 2, 200, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(5, 3, 300, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(5, 4, 400, '');
 
-insert into fee(grade_id, stu_type, receviable_amount) values(7, 1, 100);
-insert into fee(grade_id, stu_type, receviable_amount) values(7, 2, 200);
-insert into fee(grade_id, stu_type, receviable_amount) values(7, 3, 300);
-insert into fee(grade_id, stu_type, receviable_amount) values(7, 4, 400);
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(6, 1, 100, '学费30 杂费70');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(6, 2, 200, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(6, 3, 300, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(6, 4, 400, '');
 
-insert into fee(grade_id, stu_type, receviable_amount) values(8, 1, 100);
-insert into fee(grade_id, stu_type, receviable_amount) values(8, 2, 200);
-insert into fee(grade_id, stu_type, receviable_amount) values(8, 3, 300);
-insert into fee(grade_id, stu_type, receviable_amount) values(8, 4, 400);
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(7, 1, 100, '学费30 杂费70');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(7, 2, 200, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(7, 3, 300, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(7, 4, 400, '');
 
-insert into fee(grade_id, stu_type, receviable_amount) values(9, 1, 100);
-insert into fee(grade_id, stu_type, receviable_amount) values(9, 2, 200);
-insert into fee(grade_id, stu_type, receviable_amount) values(9, 3, 300);
-insert into fee(grade_id, stu_type, receviable_amount) values(9, 4, 400);
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(8, 1, 100, '学费30 杂费70');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(8, 2, 200, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(8, 3, 300, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(8, 4, 400, '');
+
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(9, 1, 100, '学费30 杂费70');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(9, 2, 200, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(9, 3, 300, '');
+insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(9, 4, 400, '');

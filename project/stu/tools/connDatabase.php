@@ -19,7 +19,6 @@ class MysqliProcess {
         while($row = mysqli_fetch_assoc($result)){
             array_push($results, $row);
         }
-        mysqli_close($this->conn);
         return $results;
     }
     function updateData($sql){
@@ -27,20 +26,20 @@ class MysqliProcess {
         if(!$result){
             die("Update data failed：" . mysqli_error($this->conn));
         }
-        mysqli_close($this->conn);
     }
     function deleteData($sql){
         $result = mysqli_query($this->conn, $sql);
-        if(!$result){
+        if (!$result) {
             die("Delete data failed：" . mysqli_error($this->conn));
         }
-        mysqli_close($this->conn);
     }
     function insertData($sql){
         $result = mysqli_query($this->conn, $sql);
         if (!$result) {
             die("Insert data failed：" . mysqli_error($this->conn));
         }
+    }
+    function closeDatabase(){
         mysqli_close($this->conn);
     }
 }

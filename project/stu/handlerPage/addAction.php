@@ -21,12 +21,11 @@ if($_POST['stu_cardId' != '']) {
     $cardId = lock_url($_POST['stu_cardId']);
 }
 
-
-
 //向数据库插入数据
 $conn = new MysqliProcess(SERVERHOST, USERNAME, PASSWORD, DBNAME);
 $insertSql = "INSERT INTO student(stu_name, stu_sex, stu_age, stu_grade, stu_address, stu_cardId, stu_family, stu_phone, stu_type, stu_voidAmount, stu_paidAmount) VALUES ('$name', $sex, $age, $grade, '$address', '$cardId', '$family', '$phone', $type, $voidAmount, $paidAmount)";
 $conn->insertData($insertSql);
+$conn->closeDatabase();
 
 //页面跳转
-alertMessage('save success!', '../include/addStudent.php');
+alertMessage('添加成功!', '../include/addStudent.php');

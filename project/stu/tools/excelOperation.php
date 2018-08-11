@@ -4,8 +4,6 @@
  * 把Excel内容转化成数组
  * @param   string     $file_path 文件地址
  * @param   integer    $sheet     工作表
- * @author liuyupeng [chenyu9205@163.com]
- * @version 2017-04-19T19:01:22+0800
  */
 function excelToArray($file_path, $sheet = 0){
     // 引入phpexcel类(thinkPHP方式，其它框架请自行修改)
@@ -55,5 +53,3 @@ function excelToArray($file_path, $sheet = 0){
     }
     return $r;
 }
-
-print_r(excelToArray('../example/example.xlsx'));
