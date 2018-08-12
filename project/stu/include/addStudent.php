@@ -6,23 +6,8 @@
     <script type="text/javascript" src="../tools/jquery-1.11.3/jquery-1.11.3.js"></script>
 
     <style type="text/css">
-        div form label.sex_grade_left{
-            margin-left: -112px;
-        }
-        div form label.cardid_left{
-            margin-left: -30px;
-        }
-        div form label.amount_left{
-            margin-left: -16px;
-        }
-        div form label.type_left{
-            margin-left: -115px;
-        }
-        div form label.family_left{
-            margin-left: 132px;
-        }
-        div form label.phone_left{
-            margin-left: 120px;
+        div{
+            margin-left: 430px;
         }
         div form select#type_id{
             width: 65px;
@@ -32,19 +17,27 @@
             border: 1px solid black;
             width: 60px;
             height: 30px;
+            margin-left: 90px;
         }
         div i{
             color: red;
             font-size: 11px;
         }
+        div i.sexInfo{
+            font-size: 13px;
+            color: black;
+        }
         div form textarea{
             width: 210px;
             height: 90px;
         }
-        div form label.fee_text_left{
+        div form label#feetextLable{
             display: inline-block;
             vertical-align: top;
-            margin-left: 37px;
+        }
+        div form label{
+            font-size: 13px;
+            font-style: italic;
         }
     </style>
     <script type="text/javascript">
@@ -88,16 +81,16 @@
 <h4 align="center"><i>--- 添加学生信息 ---</i></h4>
 
 <div>
-    <form id="addStuForm" action="../handlerPage/addAction.php" method="post" align="center" onsubmit="return checkStuInfo()">
+    <form id="addStuForm" action="../handlerPage/addAction.php" method="post" onsubmit="return checkStuInfo()">
         <label>学生姓名: </label><input id="stu_name" type="text" name="stu_name" />&nbsp;<i>*必填</i><br>
 
-        <label class="sex_grade_left">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别: </label>
-            <input name="stu_sex" type="radio" value="1" checked="checked"/>男
-            <input name="stu_sex" type="radio" value="0"/>女<br>
+        <label>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别: </label>
+        <input name="stu_sex" type="radio" value="1" checked="checked"/><i class="sexInfo">男</i>&nbsp;&nbsp;
+        <input name="stu_sex" type="radio" value="0"/><i class="sexInfo">女</i><br>
 
         <label>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄: </label><input id="stu_age" type="text" name="stu_age" />&nbsp;<i>*必填</i><br>
 
-        <label class="sex_grade_left">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级: </label>
+        <label>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级: </label>
         <select name="stu_grade">
             <option value="7" selected="selected">小班</option>
             <option value="8">中班</option>
@@ -110,7 +103,7 @@
             <option value="6">六年级</option>
         </select><br>
 
-        <label class="type_left">学生类型:  </label>
+        <label>学生类型:  </label>
         <select id="type_id" name="stu_type">
             <option value="1" selected="selected">走读</option>
             <option value="2">接送</option>
@@ -118,14 +111,14 @@
             <option value="4">全托</option>
         </select><br>
 
-        <label class="amount_left">减免金额: </label><input type="text" name="stu_voidAmount" />元<br>
-        <label class="amount_left">已付金额: </label><input type="text" name="stu_paidAmount" />元<br>
+        <label>减免金额: </label><input type="text" name="stu_voidAmount" />元<br>
+        <label>已付金额: </label><input type="text" name="stu_paidAmount" />元<br>
 
         <label>家庭住址: </label><input type="text" name="stu_address" />&nbsp;<i>*必填</i><br>
-        <label class="cardid_left">身份证号: </label><input type="text" name="stu_cardId" /><br>
-        <label class="family_left">联系家属: </label><input type="text" name="stu_family" />&nbsp;<i>*必填（最多可填写三个联系人）</i><br>
-        <label class="phone_left">联系电话: </label><input type="text" name="stu_phone" />&nbsp;<i>*必填（最多可填写三个电话）</i><br>
-        <label class="fee_text_left">缴费备注: </label> <textarea name="stu_feeText"></textarea>&nbsp;<br><br>
+        <label>身份证号: </label><input type="text" name="stu_cardId" /><br>
+        <label>联系家属: </label><input type="text" name="stu_family" />&nbsp;<i>*必填（最多可填写三个联系人）</i><br>
+        <label>联系电话: </label><input type="text" name="stu_phone" />&nbsp;<i>*必填（最多可填写三个电话）</i><br>
+        <label id="feetextLable">缴费备注: </label> <textarea name="stu_feeText"></textarea>&nbsp;<br><br>
         <input id="subBtn" type="submit" value="添加"/>
     </form>
 </div>

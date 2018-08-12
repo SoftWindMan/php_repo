@@ -40,13 +40,18 @@
             window.location.href = 'editStudent.php?stu_id=' + stu_id;
         }
         function deleteFun(stu_id) {
-            window.location.href = '../handlerPage/deleteStuHandler.php?stu_id=' + stu_id;
+            let deleteConfirm = confirm("确认要删除该学生吗？");
+            if(deleteConfirm) {
+                window.location.href = '../handlerPage/deleteStuHandler.php?stu_id=' + stu_id;
+            } else {
+                window.location.href = '../include/studentList.php';
+            }
         }
     </script>
 </head>
 <h4 align="center"><i>--- 学生信息列表 ---</i></h4>
 
-<div>
+<div id="listDiv">
     <form action="studentList.php" method="post" align="center">
         <label><span>学生姓名:</span><input type="text" name="stuName" value="<?php echo $_POST['stuName'];?>"/></label>
 

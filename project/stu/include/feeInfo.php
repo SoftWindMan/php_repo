@@ -10,7 +10,7 @@
             background-color: deepskyblue;
         }
         table tr td{
-            font-size: 12px;
+            font-size: 11px;
         }
         input#subbtn{
             margin-top: 5px;
@@ -47,34 +47,12 @@
             $c = $changeArr[$i]['receviable_amount'];
             $d = $changeArr[$i]['amount_comment'];
 
-            switch (floor($i/4)) {
+            switch (floor($i/4) % 2) {
                 case 0:
                     echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
                     break;
-                case 1:
+                default:
                     echo "<tr bgcolor='#87cefa'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
-                    break;
-                case 2:
-                    echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
-                    break;
-                case 4:
-                    echo "<tr bgcolor='#87cefa'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
-                    break;
-                case 5:
-                    echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
-                    break;
-                case 6:
-                    echo "<tr bgcolor='#87cefa'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
-                    break;
-                case 7:
-                    echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
-                    break;
-                case 8:
-                    echo "<tr bgcolor='#87cefa'><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
-                    break;
-                case 9:
-                    echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td></tr>";
-                    break;
             }
         }
     ?>

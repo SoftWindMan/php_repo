@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,9 +29,8 @@
 <ul type="none">
     <li><a class="sel_btn" id="sel_btn1" onclick="changeSelBtn(1)" href="studentList.php" target="main">学生信息列表</a></li>
     <li><a class="sel_btn" id="sel_btn2" onclick="changeSelBtn(2)" href="addStudent.php" target="main">添加学生信息</a></li>
-    <li><a class="sel_btn" id="sel_btn3" onclick="changeSelBtn(3)" href="editStudent.php" target="main">编辑学生信息</a></li>
-	<li><a class="sel_btn" id="sel_btn4" onclick="changeSelBtn(4)" href="importList.php" target="main">导入学生信息</a></li>
-	<li><a class="sel_btn" id="sel_btn5" onclick="changeSelBtn(5)" href="feeInfo.php" target="main">收费信息</a></li>
+	<li><a class="sel_btn" id="sel_btn4" onclick="changeSelBtn(3)" href="importList.php" target="main">导入学生信息</a></li>
+	<li><a class="sel_btn" id="sel_btn5" onclick="changeSelBtn(4)" href="feeInfo.php" target="main">收费信息</a></li>
 </ul>
 
 <script type="text/javascript">
@@ -42,31 +40,21 @@
             $("#sel_btn2").removeClass('ch_cls');
             $("#sel_btn3").removeClass('ch_cls');
             $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
         }else if(index==2){
             $("#sel_btn2").addClass('ch_cls');
             $("#sel_btn1").removeClass('ch_cls');
             $("#sel_btn3").removeClass('ch_cls');
             $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
         }else if(index==3){
             $("#sel_btn3").addClass('ch_cls');
             $("#sel_btn1").removeClass('ch_cls');
             $("#sel_btn2").removeClass('ch_cls');
             $("#sel_btn4").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
         }else if(index==4){
             $("#sel_btn4").addClass('ch_cls');
             $("#sel_btn1").removeClass('ch_cls');
             $("#sel_btn2").removeClass('ch_cls');
             $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn5").removeClass('ch_cls');
-        }else if(index==5){
-            $("#sel_btn5").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
         }
     }
 </script>
