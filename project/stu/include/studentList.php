@@ -1,3 +1,11 @@
+
+<?php
+    $stuGradeNum = empty($_POST['stuGrade']) ? '0' : $_POST['stuGrade'];
+    $stuTypeNum = empty($_POST['stuType']) ? '0' : $_POST['stuType'];
+    $isDebtNum = empty($_POST['isDebt']) ? '0' : $_POST['isDebt'];
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,45 +35,53 @@
             background-color: #3bb4f2;
         }
     </style>
+    <script>
+        function editFun(stu_id) {
+            window.location.href = 'editStudent.php?stu_id=' + stu_id;
+        }
+        function deleteFun(stu_id) {
+            window.location.href = '../handlerPage/deleteStuHandler.php?stu_id=' + stu_id;
+        }
+    </script>
 </head>
 <h4 align="center"><i>--- 学生信息列表 ---</i></h4>
 
 <div>
-    <form action="" method="post" align="center">
-        <label><span>学生姓名:</span><input type="text" name="stu_name" /></label>
+    <form action="studentList.php" method="post" align="center">
+        <label><span>学生姓名:</span><input type="text" name="stuName" value="<?php echo $_POST['stuName'];?>"/></label>
 
         <label><span>年级:</span>
-            <select name="stu_grade">
-                <option value="0" selected="selected">请选择</option>
-                <option value="7">小班</option>
-                <option value="8">中班</option>
-                <option value="9">大班</option>
-                <option value="1">一年级</option>
-                <option value="2">二年级</option>
-                <option value="3">三年级</option>
-                <option value="4">四年级</option>
-                <option value="5">五年级</option>
-                <option value="6">六年级</option>
+            <select name="stuGrade">
+                <option value="0" <?php if($stuGradeNum =='0') echo'selected="selected"';?>>请选择</option>
+                <option value="7" <?php if($stuGradeNum =='7') echo'selected="selected"';?>>小班</option>
+                <option value="8" <?php if($stuGradeNum =='8') echo'selected="selected"';?>>中班</option>
+                <option value="9" <?php if($stuGradeNum =='9') echo'selected="selected"';?>>大班</option>
+                <option value="1" <?php if($stuGradeNum =='1') echo'selected="selected"';?>>一年级</option>
+                <option value="2" <?php if($stuGradeNum =='2') echo'selected="selected"';?>>二年级</option>
+                <option value="3" <?php if($stuGradeNum =='3') echo'selected="selected"';?>>三年级</option>
+                <option value="4" <?php if($stuGradeNum =='4') echo'selected="selected"';?>>四年级</option>
+                <option value="5" <?php if($stuGradeNum =='5') echo'selected="selected"';?>>五年级</option>
+                <option value="6" <?php if($stuGradeNum =='6') echo'selected="selected"';?>>六年级</option>
             </select></label>
 
         <label><span>学生类型:</span>
-            <select name="stu_grade">
-                <option value="0" selected="selected">请选择</option>
-                <option value="1">走读</option>
-                <option value="2">接送</option>
-                <option value="3">日托</option>
-                <option value="4">全托</option>
+            <select name="stuType">
+                <option value="0" <?php if($stuTypeNum =='0') echo'selected="selected"';?>>请选择</option>
+                <option value="1" <?php if($stuTypeNum =='1') echo'selected="selected"';?>>走读</option>
+                <option value="2" <?php if($stuTypeNum =='2') echo'selected="selected"';?>>接送</option>
+                <option value="3" <?php if($stuTypeNum =='3') echo'selected="selected"';?>>日托</option>
+                <option value="4" <?php if($stuTypeNum =='4') echo'selected="selected"';?>>全托</option>
             </select></label>
 
         <label><span>是否欠费:</span>
-            <select name="fee">
-                <option value="-1" selected="selected">请选择</option>
-                <option value="0">否</option>
-                <option value="1">是</option>
+            <select name="isDebt">
+                <option value="0" <?php if($isDebtNum =='0') echo'selected="selected"';?> >请选择</option>
+                <option value="1" <?php if($isDebtNum =='1') echo'selected="selected"';?>>否</option>
+                <option value="2" <?php if($isDebtNum =='2') echo'selected="selected"';?>>是</option>
             </select></label><br>
 
-        <input class="subBtn" type="submit" value="查询"/>
-        <input class="subBtn" type="submit" value="导出"/>
+        <input class="subBtn" type="submit" name="submitBtn1" value="查询"/>
+<!--        <input class="subBtn" type="submit" name="submitBtn2" value="导出"/>-->
     </form>
 </div>
 
@@ -87,40 +103,58 @@
         <th>联系电话</th>
         <th>操作</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>小明</td>
-        <td>男</td>
-        <td>17</td>
-        <td>一年级</td>
-        <td>走读</td>
-        <td>100</td>
-        <td>500</td>
-        <td>300</td>
-        <td>2018-9-12</td>
-        <td>河南省信阳市</td>
-        <td>15292319730207863X</td>
-        <td>小明父亲 小明母亲 小明姥姥</td>
-        <td>17718339458 12345634528</td>
-        <td><a href="">编辑</a>&nbsp;<a href="">删除</a></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>小陈</td>
-        <td>女</td>
-        <td>21</td>
-        <td>三年级</td>
-        <td>全托</td>
-        <td>0</td>
-        <td>900</td>
-        <td>120</td>
-        <td>2018-8-21</td>
-        <td>河南省许昌市</td>
-        <td>430482197203195644</td>
-        <td>小陈母亲 小陈姥爷</td>
-        <td>17718339782</td>
-        <td><a href="">编辑</a>&nbsp;<a href="">删除</a></td>
-    </tr>
+    <?php
+        include "../tools/connDatabase.php";
+        include "../tools/conf/conf.php";
+        include "../tools/dataConvert.php";
+        include "../tools/encryFun.php";
+
+        $stuName = $_POST['stuName'];
+        $stuGrade = (int)$_POST['stuGrade'];
+        $stuType = (int)$_POST['stuType'];
+        $isDebt = (int)$_POST['isDebt'];
+
+        $stuNameSql = '1=1';
+        $stuGradeSql = '1=1';
+        $stuTypeSql = '1=1';
+        $isDebtSql = '1=1';
+        if($stuName != '') {
+            $stuNameSql = "t.`stu_name` LIKE '%{$stuName}%'";
+        }
+        if($stuGrade != 0) {
+            $stuGradeSql = "f.`grade_id` = $stuGrade";
+        }
+        if($stuType != 0) {
+            $stuTypeSql = "f.`stu_type` = $stuType";
+        }
+        if($isDebt == 2) {
+            $isDebtSql = "(f.`receviable_amount` - t.`stu_voidAmount` - t.`stu_paidAmount`) > 0";
+        }elseif ($isDebt == 1){
+            $isDebtSql = "(f.`receviable_amount` - t.`stu_voidAmount` - t.`stu_paidAmount`) <= 0";
+        }
+
+        $querySql = "SELECT t.`stu_id`, t.`stu_name`, t.`stu_sex`, t.`stu_age`, t.`stu_grade`, t.`stu_type`, t.`stu_voidAmount`, t.`stu_paidAmount`, (f.`receviable_amount` - t.`stu_voidAmount` - t.`stu_paidAmount`) 'debtAmount', t.`stu_feeText`, t.`stu_address`, t.`stu_cardId`, t.`stu_family`, t.`stu_phone` FROM `student` t LEFT JOIN `fee` f ON f.`grade_id` = t.`stu_grade` AND t.`stu_type` = f.`stu_type` WHERE " . $stuNameSql . " AND " . $stuGradeSql . " AND " . $stuTypeSql . " AND " . $isDebtSql . " ORDER BY t.`stu_id` DESC";
+        $conn = new MysqliProcess(SERVERHOST, USERNAME, PASSWORD, DBNAME);
+        $queryRes = $conn->queryData($querySql);
+
+        foreach ($queryRes as $row) {
+            $a = (int)$row['stu_id'];
+            $b = $row['stu_name'];
+            $c = dataToSexInfo((int)$row['stu_sex']);
+            $d = (int)$row['stu_age'];
+            $e = databaseToGradeInfo($row['stu_grade']);
+            $f = databaseToStutypeInfo($row['stu_type']);
+            $g = (float)$row['stu_voidAmount'];
+            $h = (float)$row['stu_paidAmount'];
+            $i = (float)$row['debtAmount'];
+            $j = $row['stu_feeText'];
+            $k = unlock_url($row['stu_address']);
+            $l = unlock_url($row['stu_cardId']);
+            $m = $row['stu_family'];
+            $n = unlock_url($row['stu_phone']);
+            echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td><td>$e</td><td>$f</td><td>$g</td><td>$h</td><td>$i</td><td>$j</td><td>$k</td><td>$l</td><td>$m</td><td>$n</td><td><a href='#' onclick='editFun($a)'>编辑</a>&nbsp;<a href='#' onclick='deleteFun($a)'>删除</a></td></tr>";
+        }
+    ?>
 </table>
 
 </html>
