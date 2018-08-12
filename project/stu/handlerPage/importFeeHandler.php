@@ -40,6 +40,12 @@ if(file_exists('../upload/'.$uploadFile['name'])) {
 //读取excel存入数据库
 $excelArr = excelToArray('../upload/'.$uploadFileName);
 $dataArr = $excelArr['data'];
+$excelHeader = $dataArr[1];
+
+if($excelHeader['A'] != '年级' or $excelHeader['B'] != '学生类型' or $excelHeader['C'] != '应收费用(元)' or $excelHeader['D'] != '费用说明') {
+    alertMessage('excel文件不正确，请下载模板文件！', '../include/feeInfo.php');
+    exit(0);
+}
 
 for($i=2; $i<=count($dataArr); $i++) {
     $gradeNum = gradeInfoToData($dataArr[$i]['A']);

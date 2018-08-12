@@ -40,6 +40,12 @@ if(file_exists('../upload/'.$uploadFile['name'])) {
 //读取excel数据存入数据库
 $excelArr = excelToArray('../upload/'.$uploadFileName);
 $dataArr = $excelArr['data'];
+$excelHeader = $dataArr[1];
+
+if($excelHeader['A'] != '姓名' or $excelHeader['D'] != '年级' or $excelHeader['G'] != '已付金额(元)' or $excelHeader['L'] != '费用说明') {
+    alertMessage('excel文件不正确，请下载模板文件！', '../include/importList.php');
+    exit(0);
+}
 
 for($i=2; $i<=count($dataArr); $i++) {
     $n = $dataArr[$i]['A'];
