@@ -23,8 +23,8 @@
         div{
             margin-left: 430px;
         }
-        div form select#type_id{
-            width: 65px;
+        div form select.widthBottom{
+            width: 75px;
         }
         div input#subBtn{
             background-color: #3bb4f2;
@@ -52,6 +52,12 @@
         div form label{
             font-size: 13px;
             font-style: italic;
+        }
+        div form input{
+            margin-bottom: 5px;
+        }
+        div form select{
+            margin-bottom: 5px;
         }
     </style>
     <script type="text/javascript">
@@ -100,14 +106,14 @@
 
         <label>学生姓名: </label><input id="stu_name" type="text" name="stu_name" value="<?php echo $stuRes['stu_name']; ?>" />&nbsp;<i>*必填</i><br>
 
-        <label>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别: </label>
+        <label>学生性别: </label>
         <input name="stu_sex" type="radio" value="1" <?php if($stuRes['stu_sex'] == '1') echo'checked="checked"';?>/><i class="sexInfo">男</i>&nbsp;&nbsp;
         <input name="stu_sex" type="radio" value="0" <?php if($stuRes['stu_sex'] == '0') echo'checked="checked"';?>/><i class="sexInfo">女</i><br>
 
-        <label>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄: </label><input id="stu_age" type="text" name="stu_age" value="<?php echo $stuRes['stu_age'];?>" />&nbsp;<i>*必填</i><br>
+        <label>学生年龄: </label><input id="stu_age" type="text" name="stu_age" value="<?php echo $stuRes['stu_age'];?>" />&nbsp;<i>*必填</i><br>
 
-        <label>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级: </label>
-        <select name="stu_grade">
+        <label>学生年级: </label>
+        <select class="widthBottom" name="stu_grade">
             <option value="7" <?php if($stuRes['stu_grade'] =='7') echo'selected="selected"';?>>小班</option>
             <option value="8" <?php if($stuRes['stu_grade'] =='8') echo'selected="selected"';?>>中班</option>
             <option value="9" <?php if($stuRes['stu_grade'] =='9') echo'selected="selected"';?>>大班</option>
@@ -120,7 +126,7 @@
         </select><br>
 
         <label>学生类型: </label>
-        <select id="type_id" name="stu_type">
+        <select class="widthBottom" name="stu_type">
             <option value="1" <?php if($stuRes['stu_type'] =='1') echo'selected="selected"';?>>走读</option>
             <option value="2" <?php if($stuRes['stu_type'] =='2') echo'selected="selected"';?>>接送</option>
             <option value="3" <?php if($stuRes['stu_type'] =='3') echo'selected="selected"';?>>日托</option>

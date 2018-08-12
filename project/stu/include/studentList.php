@@ -86,7 +86,7 @@
             </select></label><br>
 
         <input class="subBtn" type="submit" name="submitBtn1" value="查询"/>
-<!--        <input class="subBtn" type="submit" name="submitBtn2" value="导出"/>-->
+        <input class="subBtn" type="button" name="submitBtn2" value="导出"/>
     </form>
 </div>
 

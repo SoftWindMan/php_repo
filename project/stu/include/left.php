@@ -29,8 +29,8 @@
 <ul type="none">
     <li><a class="sel_btn" id="sel_btn1" onclick="changeSelBtn(1)" href="studentList.php" target="main">学生信息列表</a></li>
     <li><a class="sel_btn" id="sel_btn2" onclick="changeSelBtn(2)" href="addStudent.php" target="main">添加学生信息</a></li>
-	<li><a class="sel_btn" id="sel_btn4" onclick="changeSelBtn(3)" href="importList.php" target="main">导入学生信息</a></li>
-	<li><a class="sel_btn" id="sel_btn5" onclick="changeSelBtn(4)" href="feeInfo.php" target="main">收费信息</a></li>
+	<li><a class="sel_btn" id="sel_btn3" onclick="changeSelBtn(3)" href="importList.php" target="main">导入学生信息</a></li>
+	<li><a class="sel_btn" id="sel_btn4" onclick="changeSelBtn(4)" href="feeInfo.php" target="main">收费信息</a></li>
 </ul>
 
 <script type="text/javascript">
