@@ -35,7 +35,15 @@
             background-color: #3bb4f2;
         }
     </style>
-    <script>
+    <script type="text/javascript">
+        function queryList() {
+            document.forms.stuForm.action = 'studentList.php';
+            document.forms.stuForm.submit();
+        }
+        function exportList() {
+            document.forms.stuForm.action = '../handlerPage/exportStuHandler.php';
+            document.forms.stuForm.submit();
+        }
         function editFun(stu_id) {
             window.location.href = 'editStudent.php?stu_id=' + stu_id;
         }
@@ -52,7 +60,7 @@
 <h4 align="center"><i>--- 学生信息列表 ---</i></h4>
 
 <div id="listDiv">
-    <form action="studentList.php" method="post" align="center">
+    <form name="stuForm" method="post" align="center">
         <label><span>学生姓名:</span><input type="text" name="stuName" value="<?php echo $_POST['stuName'];?>"/></label>
 
         <label><span>年级:</span>
@@ -85,8 +93,8 @@
                 <option value="2" <?php if($isDebtNum =='2') echo'selected="selected"';?>>是</option>
             </select></label><br>
 
-        <input class="subBtn" type="submit" name="submitBtn1" value="查询"/>
-        <input class="subBtn" type="button" name="submitBtn2" value="导出"/>
+        <input class="subBtn" type="button" value="查询" onclick="queryList()"/>
+        <input class="subBtn" type="button" value="导出" onclick="exportList()"/>
     </form>
 </div>
 
