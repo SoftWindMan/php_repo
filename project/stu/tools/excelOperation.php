@@ -1,15 +1,15 @@
 <?php
 
+// 引入phpexcel类(thinkPHP方式，其它框架请自行修改)
+include "PHPExcel-1.8/PHPExcel.php";
+include "PHPExcel-1.8/PHPExcel/IOFactory.php";
+
 /**
  * 把Excel内容转化成数组
  * @param   string     $file_path 文件地址
  * @param   integer    $sheet     工作表
  */
 function excelToArray($file_path, $sheet = 0){
-    // 引入phpexcel类(thinkPHP方式，其它框架请自行修改)
-    include "PHPExcel-1.8/PHPExcel.php";
-    include "PHPExcel-1.8/PHPExcel/IOFactory.php";
-
     $r = ["status" => 1, "info" => "文件检测成功"];
     if(empty($file_path) || !file_exists($file_path)){
         $r = ["status" => 0, "info" => "Excel 读取错误"];
@@ -52,4 +52,105 @@ function excelToArray($file_path, $sheet = 0){
         $r["allColumn"] = $allColumn;
     }
     return $r;
+}
+
+/**
+ *  批量导出数据
+ *  $arr 导出列表数据
+ *  $name excel表歌名
+ */
+function arrayToExcel($arr,$name){
+    $objPHPExcel = new PHPExcel();
+
+    /*右键属性所显示的信息*/
+    $objPHPExcel->getProperties()->setCreator("zxf")  //作者
+    ->setLastModifiedBy("zxf")  //最后一次保存者
+    ->setTitle('数据EXCEL导出')  //标题
+    ->setSubject('数据EXCEL导出') //主题
+    ->setDescription('导出数据')  //描述
+    ->setKeywords("excel")   //标记
+    ->setCategory("result file");  //类别
+
+    //设置当前的表格
+    $objPHPExcel->setActiveSheetIndex(0);
+
+    // 设置表格第一行显示内容和字体颜色
+    $objPHPExcel->getActiveSheet()
+        ->setCellValue('A1', '学生姓名')
+        ->setCellValue('B1', '性别')
+        ->setCellValue('C1', '年龄')
+        ->setCellValue('D1', '年级')
+        ->setCellValue('E1', '学生类型')
+        ->setCellValue('F1', '减免金额(元)')
+        ->setCellValue('G1', '已付金额(元)')
+        ->setCellValue('H1', '所欠金额(元)')
+        ->setCellValue('I1', '缴费说明')
+        ->setCellValue('J1', '家庭住址')
+        ->setCellValue('K1', '身份证号')
+        ->setCellValue('L1', '联系家属')
+        ->setCellValue('M1', '联系电话')
+        ->getStyle('A1:M1')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
+
+    //表头字段水平居中
+    $objPHPExcel->getActiveSheet()
+        ->getStyle('A1:M1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
+    //表头单元格设置
+    $objPHPExcel->getActiveSheet()
+        ->getStyle( 'A1:M1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+    $objPHPExcel->getActiveSheet()
+        ->getStyle( 'A1:M1')->getFill()->getStartColor()->setARGB('FF00FF00');
+
+    //表头框设置
+//    $styleThinBlackBorderOutline = array(
+//        'borders' => array (
+//            'outline' => array (
+//                'style' => PHPExcel_Style_Border::BORDER_THIN,   //设置border样式
+//                //'style' => PHPExcel_Style_Border::BORDER_THICK,  另一种样式
+//                'color' => array ('argb' => 'FF000000'),          //设置border颜色
+//            ),
+//        ),
+//    );
+//    $objPHPExcel->getActiveSheet()->getStyle( 'A1:A1')->applyFromArray($styleThinBlackBorderOutline);
+
+    $key = 1;
+    /*以下就是对处理Excel里的数据，横着取数据*/
+    foreach($arr as $v){
+        $key++;
+        $objPHPExcel->getActiveSheet()
+
+            //Excel的第A列，name是你查出数组的键值字段，下面以此类推
+            ->setCellValue('A'.$key, $v['stu_name'])
+            ->setCellValue('B'.$key, $v['stu_sex'])
+            ->setCellValue('B'.$key, $v['stu_age'])
+            ->setCellValue('B'.$key, $v['stu_grade'])
+            ->setCellValue('B'.$key, $v['stu_type'])
+            ->setCellValue('B'.$key, $v['stu_voidAmount'])
+            ->setCellValue('B'.$key, $v['stu_paidAmount'])
+            ->setCellValue('B'.$key, $v['stu_debtAmount'])
+            ->setCellValue('B'.$key, $v['stu_feeText'])
+            ->setCellValue('B'.$key, $v['stu_address'])
+            ->setCellValue('B'.$key, $v['stu_cardId'])
+            ->setCellValue('B'.$key, $v['stu_family'])
+            ->setCellValue('B'.$key, $v['stu_phone']);
+    }
+
+    //设置当前的表格
+    $objPHPExcel->setActiveSheetIndex(0);
+    ob_end_clean();  //清除缓冲区,避免乱码
+    header('Content-Type: application/vnd.ms-excel'); //文件类型
+    header('Content-Disposition: attachment;filename="'.$name.'.xls"'); //文件名
+    header('Cache-Control: max-age=0');
+    header('Content-Type: text/html; charset=utf-8'); //编码
+    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');  //excel 2003
+    $objWriter->save('php://output');
+    exit;
+
+//    // 生成2007excel格式的xlsx文件
+//    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+//    header('Content-Disposition: attachment;filename="' .$name . '.xlsx"');
+//    header('Cache-Control: max-age=0');
+//    $objWriter = PHPExcel_IOFactory:: createWriter($objPHPExcel, 'Excel2007');
+//    $objWriter->save( 'php://output');
+//    exit;
 }
