@@ -34,16 +34,11 @@
             border-radius: 3px;
             background-color: #3bb4f2;
         }
+        div form select{
+            width: 75px;
+        }
     </style>
     <script type="text/javascript">
-        function queryList() {
-            document.forms.stuForm.action = 'studentList.php';
-            document.forms.stuForm.submit();
-        }
-        function exportList() {
-            document.forms.stuForm.action = '../handlerPage/exportStuHandler.php';
-            document.forms.stuForm.submit();
-        }
         function editFun(stu_id) {
             window.location.href = 'editStudent.php?stu_id=' + stu_id;
         }
@@ -60,7 +55,7 @@
 <h4 align="center"><i>--- 学生信息列表 ---</i></h4>
 
 <div id="listDiv">
-    <form name="stuForm" method="post" align="center">
+    <form action="studentList.php" method="post" align="center">
         <label><span>学生姓名:</span><input type="text" name="stuName" value="<?php echo $_POST['stuName'];?>"/></label>
 
         <label><span>年级:</span>
@@ -93,8 +88,8 @@
                 <option value="2" <?php if($isDebtNum =='2') echo'selected="selected"';?>>是</option>
             </select></label><br>
 
-        <input class="subBtn" type="button" value="查询" onclick="queryList()"/>
-        <input class="subBtn" type="button" value="导出" onclick="exportList()"/>
+        <input class="subBtn" type="submit" value="查询" name="query" />
+        <input class="subBtn" type="submit" value="导出" name="export" />
     </form>
 </div>
 
@@ -121,6 +116,7 @@
         include "../tools/conf/conf.php";
         include "../tools/dataConvert.php";
         include "../tools/encryFun.php";
+        include "../tools/excelOperation.php";
 
         $stuName = $_POST['stuName'];
         $stuGrade = (int)$_POST['stuGrade'];
@@ -150,23 +146,48 @@
         $conn = new MysqliProcess(SERVERHOST, USERNAME, PASSWORD, DBNAME);
         $queryRes = $conn->queryData($querySql);
 
+        $excelArr = array();
         foreach ($queryRes as $row) {
-            $a = (int)$row['stu_id'];
+            $arr = array();
+            $arr['stu_id'] = (int)$row['stu_id'];
+            $arr['stu_name'] = $row['stu_name'];
+            $arr['stu_sex'] = dataToSexInfo((int)$row['stu_sex']);
+            $arr['stu_age'] = (int)$row['stu_age'];
+            $arr['stu_grade'] = databaseToGradeInfo($row['stu_grade']);
+            $arr['stu_type'] = databaseToStutypeInfo($row['stu_type']);
+            $arr['stu_voidAmount'] = (float)$row['stu_voidAmount'];
+            $arr['stu_paidAmount'] = (float)$row['stu_paidAmount'];
+            $arr['stu_debtAmount'] = (float)$row['debtAmount'];
+            $arr['stu_feeText'] = $row['stu_feeText'];
+            $arr['stu_address'] = unlock_url($row['stu_address']);
+            $arr['stu_cardId'] = unlock_url($row['stu_cardId']);
+            $arr['stu_family'] = $row['stu_family'];
+            $arr['stu_phone'] = unlock_url($row['stu_phone']);
+            array_push($excelArr, $arr);
+        }
+
+        if(!empty($_POST['export'])){
+            arrayToExcel($excelArr, '学生信息表');
+        }
+
+        foreach ($excelArr as $row) {
+            $a = $row['stu_id'];
             $b = $row['stu_name'];
-            $c = dataToSexInfo((int)$row['stu_sex']);
-            $d = (int)$row['stu_age'];
-            $e = databaseToGradeInfo($row['stu_grade']);
-            $f = databaseToStutypeInfo($row['stu_type']);
-            $g = (float)$row['stu_voidAmount'];
-            $h = (float)$row['stu_paidAmount'];
-            $i = (float)$row['debtAmount'];
+            $c = $row['stu_sex'];
+            $d = $row['stu_age'];
+            $e = $row['stu_grade'];
+            $f = $row['stu_type'];
+            $g = $row['stu_voidAmount'];
+            $h = $row['stu_paidAmount'];
+            $i = $row['stu_debtAmount'];
             $j = $row['stu_feeText'];
-            $k = unlock_url($row['stu_address']);
-            $l = unlock_url($row['stu_cardId']);
+            $k = $row['stu_address'];
+            $l = $row['stu_cardId'];
             $m = $row['stu_family'];
-            $n = unlock_url($row['stu_phone']);
+            $n = $row['stu_phone'];
             echo "<tr><td>$a</td><td>$b</td><td>$c</td><td>$d</td><td>$e</td><td>$f</td><td>$g</td><td>$h</td><td>$i</td><td>$j</td><td>$k</td><td>$l</td><td>$m</td><td>$n</td><td><a href='#' onclick='editFun($a)'>编辑</a>&nbsp;<a href='#' onclick='deleteFun($a)'>删除</a></td></tr>";
         }
+
     ?>
 </table>
 

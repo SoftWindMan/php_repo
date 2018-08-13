@@ -89,17 +89,18 @@ function arrayToExcel($arr,$name){
         ->setCellValue('K1', '身份证号')
         ->setCellValue('L1', '联系家属')
         ->setCellValue('M1', '联系电话')
+        ->setCellValue('N1', '编号')
         ->getStyle('A1:M1')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_BLACK);
 
     //表头字段水平居中
     $objPHPExcel->getActiveSheet()
-        ->getStyle('A1:M1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        ->getStyle('A1:N1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
     //表头单元格设置
     $objPHPExcel->getActiveSheet()
-        ->getStyle( 'A1:M1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+        ->getStyle( 'A1:N1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
     $objPHPExcel->getActiveSheet()
-        ->getStyle( 'A1:M1')->getFill()->getStartColor()->setARGB('FF00FF00');
+        ->getStyle( 'A1:N1')->getFill()->getStartColor()->setARGB('FF00FF00');
 
     //表头框设置
 //    $styleThinBlackBorderOutline = array(
@@ -122,27 +123,30 @@ function arrayToExcel($arr,$name){
             //Excel的第A列，name是你查出数组的键值字段，下面以此类推
             ->setCellValue('A'.$key, $v['stu_name'])
             ->setCellValue('B'.$key, $v['stu_sex'])
-            ->setCellValue('B'.$key, $v['stu_age'])
-            ->setCellValue('B'.$key, $v['stu_grade'])
-            ->setCellValue('B'.$key, $v['stu_type'])
-            ->setCellValue('B'.$key, $v['stu_voidAmount'])
-            ->setCellValue('B'.$key, $v['stu_paidAmount'])
-            ->setCellValue('B'.$key, $v['stu_debtAmount'])
-            ->setCellValue('B'.$key, $v['stu_feeText'])
-            ->setCellValue('B'.$key, $v['stu_address'])
-            ->setCellValue('B'.$key, $v['stu_cardId'])
-            ->setCellValue('B'.$key, $v['stu_family'])
-            ->setCellValue('B'.$key, $v['stu_phone']);
+            ->setCellValue('C'.$key, $v['stu_age'])
+            ->setCellValue('D'.$key, $v['stu_grade'])
+            ->setCellValue('E'.$key, $v['stu_type'])
+            ->setCellValue('F'.$key, $v['stu_voidAmount'])
+            ->setCellValue('G'.$key, $v['stu_paidAmount'])
+            ->setCellValue('H'.$key, $v['stu_debtAmount'])
+            ->setCellValue('I'.$key, $v['stu_feeText'])
+            ->setCellValue('J'.$key, $v['stu_address'])
+            ->setCellValue('K'.$key, $v['stu_cardId'])
+            ->setCellValue('L'.$key, $v['stu_family'])
+            ->setCellValue('M'.$key, $v['stu_phone'])
+            ->setCellValue('N'.$key, $v['stu_id']);
     }
 
     //设置当前的表格
+    $name = time() . $name;
+
     $objPHPExcel->setActiveSheetIndex(0);
     ob_end_clean();  //清除缓冲区,避免乱码
-    header('Content-Type: application/vnd.ms-excel'); //文件类型
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); //文件类型
     header('Content-Disposition: attachment;filename="'.$name.'.xls"'); //文件名
     header('Cache-Control: max-age=0');
     header('Content-Type: text/html; charset=utf-8'); //编码
-    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');  //excel 2003
+    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');  //excel 2003
     $objWriter->save('php://output');
     exit;
 
