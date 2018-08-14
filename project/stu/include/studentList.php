@@ -1,9 +1,9 @@
 
 <?php
     $stuName = empty($_POST['stuName']) ? '' : $_POST['stuName'];
-    $stuGrade = empty($_POST['stuGrade']) ? '0' : (int)$_POST['stuGrade'];
-    $stuType = empty($_POST['stuType']) ? '0' : (int)$_POST['stuType'];
-    $isDebt = empty($_POST['isDebt']) ? '0' : (int)$_POST['isDebt'];
+    $stuGrade = empty($_POST['stuGrade']) ? 0 : (int)$_POST['stuGrade'];
+    $stuType = empty($_POST['stuType']) ? 0 : (int)$_POST['stuType'];
+    $isDebt = empty($_POST['isDebt']) ? 0 : (int)$_POST['isDebt'];
 
 ?>
 
@@ -61,32 +61,32 @@
 
         <label><span>年级: </span>
             <select name="stuGrade">
-                <option value="0" <?php if($stuGrade =='0') echo'selected="selected"';?>>请选择</option>
-                <option value="7" <?php if($stuGrade =='7') echo'selected="selected"';?>>小班</option>
-                <option value="8" <?php if($stuGrade =='8') echo'selected="selected"';?>>中班</option>
-                <option value="9" <?php if($stuGrade =='9') echo'selected="selected"';?>>大班</option>
-                <option value="1" <?php if($stuGrade =='1') echo'selected="selected"';?>>一年级</option>
-                <option value="2" <?php if($stuGrade =='2') echo'selected="selected"';?>>二年级</option>
-                <option value="3" <?php if($stuGrade =='3') echo'selected="selected"';?>>三年级</option>
-                <option value="4" <?php if($stuGrade =='4') echo'selected="selected"';?>>四年级</option>
-                <option value="5" <?php if($stuGrade =='5') echo'selected="selected"';?>>五年级</option>
-                <option value="6" <?php if($stuGrade =='6') echo'selected="selected"';?>>六年级</option>
+                <option value="0" <?php if($stuGrade == 0) echo'selected="selected"';?>>请选择</option>
+                <option value="7" <?php if($stuGrade == 7) echo'selected="selected"';?>>小班</option>
+                <option value="8" <?php if($stuGrade == 8) echo'selected="selected"';?>>中班</option>
+                <option value="9" <?php if($stuGrade == 9) echo'selected="selected"';?>>大班</option>
+                <option value="1" <?php if($stuGrade == 1) echo'selected="selected"';?>>一年级</option>
+                <option value="2" <?php if($stuGrade == 2) echo'selected="selected"';?>>二年级</option>
+                <option value="3" <?php if($stuGrade == 3) echo'selected="selected"';?>>三年级</option>
+                <option value="4" <?php if($stuGrade == 4) echo'selected="selected"';?>>四年级</option>
+                <option value="5" <?php if($stuGrade == 5) echo'selected="selected"';?>>五年级</option>
+                <option value="6" <?php if($stuGrade == 6) echo'selected="selected"';?>>六年级</option>
             </select></label>
 
         <label><span>学生类型: </span>
             <select name="stuType">
-                <option value="0" <?php if($stuType =='0') echo'selected="selected"';?>>请选择</option>
-                <option value="1" <?php if($stuType =='1') echo'selected="selected"';?>>走读</option>
-                <option value="2" <?php if($stuType =='2') echo'selected="selected"';?>>接送</option>
-                <option value="3" <?php if($stuType =='3') echo'selected="selected"';?>>日托</option>
-                <option value="4" <?php if($stuType =='4') echo'selected="selected"';?>>全托</option>
+                <option value="0" <?php if($stuType == 0) echo'selected="selected"';?>>请选择</option>
+                <option value="1" <?php if($stuType == 1) echo'selected="selected"';?>>走读</option>
+                <option value="2" <?php if($stuType == 2) echo'selected="selected"';?>>接送</option>
+                <option value="3" <?php if($stuType == 3) echo'selected="selected"';?>>日托</option>
+                <option value="4" <?php if($stuType == 4) echo'selected="selected"';?>>全托</option>
             </select></label>
 
         <label><span>是否欠费: </span>
             <select name="isDebt">
-                <option value="0" <?php if($isDebt =='0') echo'selected="selected"';?> >请选择</option>
-                <option value="1" <?php if($isDebt =='1') echo'selected="selected"';?>>否</option>
-                <option value="2" <?php if($isDebt =='2') echo'selected="selected"';?>>是</option>
+                <option value="0" <?php if($isDebt == 0) echo'selected="selected"';?> >请选择</option>
+                <option value="1" <?php if($isDebt == 1) echo'selected="selected"';?>>否</option>
+                <option value="2" <?php if($isDebt == 2) echo'selected="selected"';?>>是</option>
             </select></label><br>
 
         <input class="subBtn" type="submit" value="查询" name="query" />
