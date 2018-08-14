@@ -169,7 +169,7 @@
         }
 
         if(!empty($_POST['export'])){
-            $fileName = '学生信息表_' . date('YmdHms', time());
+            $fileName = '学生信息表' . date('YmdHms', time());
             arrayToExcel($excelArr, $fileName);
         }
 
