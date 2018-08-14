@@ -138,8 +138,6 @@ function arrayToExcel($arr,$name){
     }
 
     //设置当前的表格
-    $name = time() . $name;
-
     $objPHPExcel->setActiveSheetIndex(0);
     ob_end_clean();  //清除缓冲区,避免乱码
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); //文件类型

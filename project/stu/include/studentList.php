@@ -118,7 +118,7 @@
         include "../tools/encryFun.php";
         include "../tools/excelOperation.php";
 
-        if(empty($_POST['stuName'] or empty($_POST['stuGrade'])) or empty($_POST['stuType']) or empty($_POST['isDebt'])) {
+        if(!empty($_POST['stuName'] or !empty($_POST['stuGrade'])) or !empty($_POST['stuType']) or !empty($_POST['isDebt'])) {
             $stuName = $_POST['stuName'];
             $stuGrade = (int)$_POST['stuGrade'];
             $stuType = (int)$_POST['stuType'];

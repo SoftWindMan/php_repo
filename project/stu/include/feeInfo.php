@@ -15,7 +15,7 @@
         input#subbtn{
             margin-top: 5px;
             margin-bottom: 10px;
-            width: 82px;
+            width: 90px;
             height: 30px;
             border-radius: 3px;
             background-color: #3bb4f2;
