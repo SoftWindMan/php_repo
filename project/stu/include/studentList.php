@@ -1,8 +1,9 @@
 
 <?php
-    $stuGradeNum = empty($_POST['stuGrade']) ? '0' : $_POST['stuGrade'];
-    $stuTypeNum = empty($_POST['stuType']) ? '0' : $_POST['stuType'];
-    $isDebtNum = empty($_POST['isDebt']) ? '0' : $_POST['isDebt'];
+    $stuName = empty($_POST['stuName']) ? '' : $_POST['stuName'];
+    $stuGrade = empty($_POST['stuGrade']) ? '0' : (int)$_POST['stuGrade'];
+    $stuType = empty($_POST['stuType']) ? '0' : (int)$_POST['stuType'];
+    $isDebt = empty($_POST['isDebt']) ? '0' : (int)$_POST['isDebt'];
 
 ?>
 
@@ -56,36 +57,36 @@
 
 <div id="listDiv" align="center">
     <form action="studentList.php" method="post">
-        <label><span>学生姓名: </span><input type="text" name="stuName" value="<?php echo $_POST['stuName'];?>"/></label>
+        <label><span>学生姓名: </span><input type="text" name="stuName" value="<?php echo $stuName;?>"/></label>
 
         <label><span>年级: </span>
             <select name="stuGrade">
-                <option value="0" <?php if($stuGradeNum =='0') echo'selected="selected"';?>>请选择</option>
-                <option value="7" <?php if($stuGradeNum =='7') echo'selected="selected"';?>>小班</option>
-                <option value="8" <?php if($stuGradeNum =='8') echo'selected="selected"';?>>中班</option>
-                <option value="9" <?php if($stuGradeNum =='9') echo'selected="selected"';?>>大班</option>
-                <option value="1" <?php if($stuGradeNum =='1') echo'selected="selected"';?>>一年级</option>
-                <option value="2" <?php if($stuGradeNum =='2') echo'selected="selected"';?>>二年级</option>
-                <option value="3" <?php if($stuGradeNum =='3') echo'selected="selected"';?>>三年级</option>
-                <option value="4" <?php if($stuGradeNum =='4') echo'selected="selected"';?>>四年级</option>
-                <option value="5" <?php if($stuGradeNum =='5') echo'selected="selected"';?>>五年级</option>
-                <option value="6" <?php if($stuGradeNum =='6') echo'selected="selected"';?>>六年级</option>
+                <option value="0" <?php if($stuGrade =='0') echo'selected="selected"';?>>请选择</option>
+                <option value="7" <?php if($stuGrade =='7') echo'selected="selected"';?>>小班</option>
+                <option value="8" <?php if($stuGrade =='8') echo'selected="selected"';?>>中班</option>
+                <option value="9" <?php if($stuGrade =='9') echo'selected="selected"';?>>大班</option>
+                <option value="1" <?php if($stuGrade =='1') echo'selected="selected"';?>>一年级</option>
+                <option value="2" <?php if($stuGrade =='2') echo'selected="selected"';?>>二年级</option>
+                <option value="3" <?php if($stuGrade =='3') echo'selected="selected"';?>>三年级</option>
+                <option value="4" <?php if($stuGrade =='4') echo'selected="selected"';?>>四年级</option>
+                <option value="5" <?php if($stuGrade =='5') echo'selected="selected"';?>>五年级</option>
+                <option value="6" <?php if($stuGrade =='6') echo'selected="selected"';?>>六年级</option>
             </select></label>
 
         <label><span>学生类型: </span>
             <select name="stuType">
-                <option value="0" <?php if($stuTypeNum =='0') echo'selected="selected"';?>>请选择</option>
-                <option value="1" <?php if($stuTypeNum =='1') echo'selected="selected"';?>>走读</option>
-                <option value="2" <?php if($stuTypeNum =='2') echo'selected="selected"';?>>接送</option>
-                <option value="3" <?php if($stuTypeNum =='3') echo'selected="selected"';?>>日托</option>
-                <option value="4" <?php if($stuTypeNum =='4') echo'selected="selected"';?>>全托</option>
+                <option value="0" <?php if($stuType =='0') echo'selected="selected"';?>>请选择</option>
+                <option value="1" <?php if($stuType =='1') echo'selected="selected"';?>>走读</option>
+                <option value="2" <?php if($stuType =='2') echo'selected="selected"';?>>接送</option>
+                <option value="3" <?php if($stuType =='3') echo'selected="selected"';?>>日托</option>
+                <option value="4" <?php if($stuType =='4') echo'selected="selected"';?>>全托</option>
             </select></label>
 
         <label><span>是否欠费: </span>
             <select name="isDebt">
-                <option value="0" <?php if($isDebtNum =='0') echo'selected="selected"';?> >请选择</option>
-                <option value="1" <?php if($isDebtNum =='1') echo'selected="selected"';?>>否</option>
-                <option value="2" <?php if($isDebtNum =='2') echo'selected="selected"';?>>是</option>
+                <option value="0" <?php if($isDebt =='0') echo'selected="selected"';?> >请选择</option>
+                <option value="1" <?php if($isDebt =='1') echo'selected="selected"';?>>否</option>
+                <option value="2" <?php if($isDebt =='2') echo'selected="selected"';?>>是</option>
             </select></label><br>
 
         <input class="subBtn" type="submit" value="查询" name="query" />
@@ -117,13 +118,6 @@
         include "../tools/dataConvert.php";
         include "../tools/encryFun.php";
         include "../tools/excelOperation.php";
-
-        if(!empty($_POST['stuName'] or !empty($_POST['stuGrade'])) or !empty($_POST['stuType']) or !empty($_POST['isDebt'])) {
-            $stuName = $_POST['stuName'];
-            $stuGrade = (int)$_POST['stuGrade'];
-            $stuType = (int)$_POST['stuType'];
-            $isDebt = (int)$_POST['isDebt'];
-        }
 
         $stuNameSql = '1=1';
         $stuGradeSql = '1=1';
