@@ -27,7 +27,7 @@ if(file_exists('../upload/'.$uploadFile['name'])) {
     alertMessage('文件已经存在！', '../include/importList.php');
     exit(0);
 } else {
-    $uploadFileName = date('Y-m-d-H-m-s', time()) . $uploadFile['name'];
+    $uploadFileName = $uploadFile['name'] . '_' . date('YmdHms', time());
 
     //upload权限问题
     $flag = move_uploaded_file($uploadFile['tmp_name'], '../upload/'.$uploadFileName);

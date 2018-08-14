@@ -54,8 +54,8 @@
 </head>
 <h4 align="center"><i>--- 学生信息列表 ---</i></h4>
 
-<div id="listDiv">
-    <form action="studentList.php" method="post" align="center">
+<div id="listDiv" align="center">
+    <form action="studentList.php" method="post">
         <label><span>学生姓名: </span><input type="text" name="stuName" value="<?php echo $_POST['stuName'];?>"/></label>
 
         <label><span>年级: </span>
@@ -167,7 +167,8 @@
         }
 
         if(!empty($_POST['export'])){
-            arrayToExcel($excelArr, '学生信息表');
+            $fileName = '学生信息表_' . date('YmdHms', time());
+            arrayToExcel($excelArr, $fileName);
         }
 
         foreach ($excelArr as $row) {
