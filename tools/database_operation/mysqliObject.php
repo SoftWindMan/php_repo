@@ -22,7 +22,6 @@ class MysqliObject{
         while($row = $result->fetch_assoc()){
             array_push($results, $row);
         }
-        $this->conn->close();
         return $results;
     }
 
@@ -31,7 +30,6 @@ class MysqliObject{
         if(!$result){
             die("Update data failed: " . $this->conn->error);
         }
-        $this->conn->close();
     }
 
     function deleteData($sql){
@@ -39,7 +37,6 @@ class MysqliObject{
         if(!$result){
             die("Delete data failed: " . $this->conn->error);
         }
-        $this->conn->close();
     }
 
     function insertData($sql){
@@ -47,6 +44,9 @@ class MysqliObject{
         if(!$result){
             die("Insert data failed: " . $this->conn->error);
         }
+    }
+
+    function closeDatabase() {
         $this->conn->close();
     }
 }
