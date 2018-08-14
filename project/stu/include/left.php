@@ -35,26 +35,13 @@
 
 <script type="text/javascript">
     function changeSelBtn(index){
-        if(index==1){
-            $("#sel_btn1").addClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-        }else if(index==2){
-            $("#sel_btn2").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-        }else if(index==3){
-            $("#sel_btn3").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn4").removeClass('ch_cls');
-        }else if(index==4){
-            $("#sel_btn4").addClass('ch_cls');
-            $("#sel_btn1").removeClass('ch_cls');
-            $("#sel_btn2").removeClass('ch_cls');
-            $("#sel_btn3").removeClass('ch_cls');
+        for (let i=1; i<=4; i++) {
+            let idName = "#" + 'sel_btn' + i;
+            if (i == index) {
+                $(idName).addClass('ch_cls');
+            } else {
+                $(idName).removeClass('ch_cls');
+            }
         }
     }
 </script>

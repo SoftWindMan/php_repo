@@ -56,9 +56,9 @@
 
 <div id="listDiv">
     <form action="studentList.php" method="post" align="center">
-        <label><span>学生姓名:</span><input type="text" name="stuName" value="<?php echo $_POST['stuName'];?>"/></label>
+        <label><span>学生姓名: </span><input type="text" name="stuName" value="<?php echo $_POST['stuName'];?>"/></label>
 
-        <label><span>年级:</span>
+        <label><span>年级: </span>
             <select name="stuGrade">
                 <option value="0" <?php if($stuGradeNum =='0') echo'selected="selected"';?>>请选择</option>
                 <option value="7" <?php if($stuGradeNum =='7') echo'selected="selected"';?>>小班</option>
@@ -72,7 +72,7 @@
                 <option value="6" <?php if($stuGradeNum =='6') echo'selected="selected"';?>>六年级</option>
             </select></label>
 
-        <label><span>学生类型:</span>
+        <label><span>学生类型: </span>
             <select name="stuType">
                 <option value="0" <?php if($stuTypeNum =='0') echo'selected="selected"';?>>请选择</option>
                 <option value="1" <?php if($stuTypeNum =='1') echo'selected="selected"';?>>走读</option>
@@ -81,7 +81,7 @@
                 <option value="4" <?php if($stuTypeNum =='4') echo'selected="selected"';?>>全托</option>
             </select></label>
 
-        <label><span>是否欠费:</span>
+        <label><span>是否欠费: </span>
             <select name="isDebt">
                 <option value="0" <?php if($isDebtNum =='0') echo'selected="selected"';?> >请选择</option>
                 <option value="1" <?php if($isDebtNum =='1') echo'selected="selected"';?>>否</option>

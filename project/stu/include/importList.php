@@ -7,7 +7,7 @@
     <style type="text/css">
         input#subbtn{
             margin-top: 10px;
-            width: 82px;
+            width: 87px;
             height: 30px;
             border-radius: 3px;
             background-color: #3bb4f2;
