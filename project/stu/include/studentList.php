@@ -118,10 +118,12 @@
         include "../tools/encryFun.php";
         include "../tools/excelOperation.php";
 
-        $stuName = $_POST['stuName'];
-        $stuGrade = (int)$_POST['stuGrade'];
-        $stuType = (int)$_POST['stuType'];
-        $isDebt = (int)$_POST['isDebt'];
+        if(empty($_POST['stuName'] or empty($_POST['stuGrade'])) or empty($_POST['stuType']) or empty($_POST['isDebt'])) {
+            $stuName = $_POST['stuName'];
+            $stuGrade = (int)$_POST['stuGrade'];
+            $stuType = (int)$_POST['stuType'];
+            $isDebt = (int)$_POST['isDebt'];
+        }
 
         $stuNameSql = '1=1';
         $stuGradeSql = '1=1';
