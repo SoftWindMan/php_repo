@@ -1,6 +1,6 @@
 <?php
 
-class MysqliProcesss{
+class MysqliProcess{
     private $conn;
 
     function __construct($host, $userName, $pwd, $dbName){
