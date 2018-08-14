@@ -8,7 +8,7 @@
 	</style>
 </head>
 
-<frameset cols="15%,*" frameborder="1" framespacing="0" border="1" noresize="noresize">
+<frameset cols="13%,*" frameborder="1" framespacing="0" border="1" noresize="noresize">
 	<frame src="include/left.php" >
 	<frame src="include/main.php" name="main">
 </frameset>
