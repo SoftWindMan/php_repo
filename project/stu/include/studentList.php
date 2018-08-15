@@ -4,7 +4,6 @@
     $stuGrade = empty($_POST['stuGrade']) ? 0 : (int)$_POST['stuGrade'];
     $stuType = empty($_POST['stuType']) ? 0 : (int)$_POST['stuType'];
     $isDebt = empty($_POST['isDebt']) ? 0 : (int)$_POST['isDebt'];
-
 ?>
 
 <!DOCTYPE html>
@@ -156,7 +155,13 @@
             $arr['stu_debtAmount'] = (float)$row['debtAmount'];
             $arr['stu_feeText'] = $row['stu_feeText'];
             $arr['stu_address'] = unlock_url($row['stu_address']);
-            $arr['stu_cardId'] = unlock_url($row['stu_cardId']);
+
+            if($row['stu_cardId'] != '') {
+                $arr['stu_cardId'] = unlock_url($row['stu_cardId']);
+            }else{
+                $arr['stu_cardId'] = '';
+            }
+
             $arr['stu_family'] = $row['stu_family'];
             $arr['stu_phone'] = unlock_url($row['stu_phone']);
             array_push($excelArr, $arr);

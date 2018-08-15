@@ -22,16 +22,7 @@ CREATE TABLE `fee` (
   `amount_comment` varchar(255) DEFAULT '' COMMENT '费用说明'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收费表';
 
-
 -- 测试数据
-INSERT INTO `student` (`stu_id`, `stu_name`, `stu_sex`, `stu_age`, `stu_grade`, `stu_type`, `stu_voidAmount`, `stu_paidAmount`, `stu_address`, `stu_cardId`, `stu_family`, `stu_phone`, `stu_feeText`)
-VALUES
-	(13, '小明', 1, 26, 5, 3, 120.00, 500.00, '5m8kmUETplNMwVlxVm7wJUmTzlMkk', '%2BtGqk', '小明父亲 小明母亲', 'whH1WsLwJg4tV0HhIy4obxocYygnj', '交400'),
-	(14, '小陈', 0, 25, 6, 1, 110.00, 330.00, 'iRNM-OEpf-ylUAfb%3DNOdeLR3xAt%3DN', '', '小陈父亲', '-8IRZrJRjuoVjwzJ0', '交钱');
-
-
-
-
 insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(1, 1, 100, '学费30 杂费70');
 insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(1, 2, 200, '');
 insert into fee(grade_id, stu_type, receviable_amount, amount_comment) values(1, 3, 300, '');
